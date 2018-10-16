@@ -1,0 +1,5 @@
+# Untracked files
+node_modules/
+
+# Secret file
+settings.json
