@@ -25,10 +25,11 @@ function famousPeople(array) {
 
 knex
     .from('famous_people')
-    .where({
-        first_name: process.argv[2]
-    })
-    .select()
+    .where('first_name', process.argv[2])
+    // .where({
+    //     first_name: process.argv[2]
+    // }) // another way to write this, if it were to have more objects.
+    .select('*')
     .asCallback(function (err, rows) {
         if (err) return console.error(err);
         famousPeople(rows)
@@ -46,6 +47,7 @@ knex
 //     .then(function (rows) {
 //         console.log(famousPeople(rows))
 //     })
+
 //     .catch(function (err) {
 //         console.log("ERROR", err)
 //     });
