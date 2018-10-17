@@ -54,9 +54,13 @@ function famousPeople(array) {
 //         console.log("ERROR",err)
 //     })
 
+
 knex
-    .select('*')
     .from('famous_people')
+    .where({
+        first_name: process.argv[2]
+    })
+    .select()
     .asCallback(function (err, rows) {
         if (err) return console.error(err);
         console.log(rows);
